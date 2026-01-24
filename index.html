@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Portfolio – Dein Name</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Ladebildschirm -->
+    <div id="boot-screen">
+      <div class="boot-content">
+        <h1>Loading...</h1>
+        <div class="boot-bar">
+          <div class="boot-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class="desktop-bg">
+      <!-- Desktop Icons -->
+      <div class="desktop-icons">
+        <div class="icon" onclick="openWindow('about-window')">
+          <img src="assets/icons/about.png" alt="About Icon" />
+          <br /><span>About me</span>
+        </div>
+        <div class="icon" onclick="openWindow('projects-window')">
+          <img src="assets/icons/projects.png" alt="Projects Icon" />
+          <span>Projects</span>
+        </div>
+        <div class="icon" onclick="openWindow('skills-window')">
+          <img src="assets/icons/skills.png" alt="Skills Icon" /><br />
+          <span>Skills</span>
+        </div>
+        <div class="icon" onclick="openWindow('contact-window')">
+          <img src="assets/icons/contact.png" alt="Contact Icon" />
+          <span>Contact</span>
+        </div>
+      </div>
+
+      <!-- Fenster: About me -->
+      <div class="window hidden" id="about-window">
+        <div
+          class="window-titlebar"
+          onmousedown="dragStart(event, this.parentElement)"
+        >
+          <span>About me</span>
+          <span class="window-controls">
+            <button onclick="closeWindow('about-window')" class="win95-btn">
+              X
+            </button>
+          </span>
+        </div>
+        <div class="window-content about-layout">
+          <div class="about-top">
+            <img
+              src="assets/profile.jpg"
+              alt="Profile picture"
+              class="profile-pic"
+            />
+
+            <div class="about-text">
+              <p>
+                <b style="font-size: large">Hi There 👋</b><br />
+                My name is Muhamed Jaber, or you can call me by my nickname
+                Hamudi. I’m a <b>System Engineer (M.Sc.)</b> with a focus on
+                automation engineering, embedded systems, system software, and
+                robotics. As a web and software developer, I work at the
+                intersection of complex technical systems and user-centered
+                applications.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Through my Bachelor’s and Master’s studies in
+            <b>Systems Engineering</b>, I’ve built a holistic understanding of
+            system architectures, from hardware-close components to distributed,
+            cloud-based applications. My theses focused on topics such as
+            automated data processing, expert systems, and the structured
+            handling of technical measurement data. Today, I develop
+            <b>modern web, cloud, and software solutions</b>, including React
+            frontends with TypeScript, serverless backends on AWS, and CI/CD
+            pipelines. I place strong emphasis on clean code, scalable
+            architectures, and a clear separation of responsibilities.
+          </p>
+          <br />
+
+          <p>
+            Outside of coding, I find my balance in <b>sports</b>. I’m a
+            passionate runner, love swimming wherever there’s water, enjoy
+            cycling, and play badminton. Regular fitness training is an
+            essential part of my routine. Even beyond my professional work,
+            <b>programming</b> remains a true passion especially exploring the
+            blend of modern technologies with a strong affinity for retro
+            designs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fenster: Projects -->
+      <div class="window hidden" id="projects-window">
+        <div
+          class="window-titlebar"
+          onmousedown="dragStart(event, this.parentElement)"
+        >
+          <span>Projects</span>
+          <span class="window-controls">
+            <button onclick="closeWindow('projects-window')" class="win95-btn">
+              X
+            </button>
+          </span>
+        </div>
+        <div class="window-content">
+          <ul>
+            <li><b>Projekt 1:</b> Windows 95 Portfolio</li>
+            <li><b>Projekt 2:</b> Web-App mit React</li>
+            <li><b>Projekt 3:</b> CSS Experimente</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fenster: Skills -->
+      <div class="window hidden" id="skills-window">
+        <div
+          class="window-titlebar"
+          onmousedown="dragStart(event, this.parentElement)"
+        >
+          <span>Skills</span>
+          <span class="window-controls">
+            <button onclick="closeWindow('skills-window')" class="win95-btn">
+              X
+            </button>
+          </span>
+        </div>
+        <div class="window-content skills-layout">
+          <div class="skills-grid">
+            <div class="skill-box">
+              <div class="skill-title frontend">Frontend</div>
+              <div class="skill-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>TypeScript</span>
+                <span>React</span>
+                <span>Vite</span>
+              </div>
+            </div>
+
+            <div class="skill-box">
+              <div class="skill-title backend">Backend</div>
+              <div class="skill-list">
+                <span>Java</span>
+                <span>Node.js</span>
+                <span>Maven</span>
+                <span>Express</span>
+              </div>
+            </div>
+
+            <div class="skill-box">
+              <div class="skill-title database">Database</div>
+              <div class="skill-list">
+                <span>SQL</span>
+                <span>Firebase</span>
+              </div>
+            </div>
+
+            <div class="skill-box">
+              <div class="skill-title devops">DevOps</div>
+              <div class="skill-list">
+                <span>AWS</span>
+                <span>Docker</span>
+                <span>CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fenster: Contact -->
+      <div class="window hidden" id="contact-window">
+        <div
+          class="window-titlebar"
+          onmousedown="dragStart(event, this.parentElement)"
+        >
+          <span>Contact</span>
+          <span class="window-controls">
+            <button onclick="closeWindow('contact-window')" class="win95-btn">
+              X
+            </button>
+          </span>
+        </div>
+        <div class="window-content contact-layout">
+          <p class="contact-intro">
+            You can reach me via the following channels:
+          </p>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon">☎</span>
+              <span><b>Phone:</b> 0174 3759997</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon">✉</span>
+              <span>
+                <b>Email:</b>
+                hamudij8@gmail.com
+              </span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon">🔗</span>
+              <span>
+                <b>LinkedIn:</b>
+                <a
+                  href="https://www.linkedin.com/in/muhamed-jaber-090257185"
+                  target="_blank"
+                >
+                  linkedin.com/in/muhamed-jaber-090257185
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taskbar -->
+      <footer class="win95-footer">
+        <!-- links: Start -->
+        <div class="start-wrapper">
+          <button
+            class="start-btn"
+            id="startButton"
+            onclick="toggleStartMenu()"
+          >
+            <img
+              src="assets/icons/start-icon.png"
+              alt="Windows Icon"
+              class="start-icon"
+            />
+            Start
+          </button>
+
+          <div id="start-menu" class="start-menu hidden">
+            <ul>
+              <li onclick="openWindow('about-window')">
+                <img
+                  src="assets/icons/about.png"
+                  alt="About Icon"
+                  class="start-menu-icon"
+                />
+                About me
+              </li>
+              <li onclick="openWindow('projects-window')">
+                <img
+                  src="assets/icons/projects.png"
+                  alt="Projects Icon"
+                  class="start-menu-icon"
+                />
+                Projects
+              </li>
+              <li onclick="openWindow('skills-window')">
+                <img
+                  src="assets/icons/skills.png"
+                  alt="Skills Icon"
+                  class="start-menu-icon"
+                />
+                Skills
+              </li>
+              <li onclick="openWindow('contact-window')">
+                <img
+                  src="assets/icons/contact.png"
+                  alt="Contact Icon"
+                  class="start-menu-icon"
+                />
+                Contact
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- mitte: Copyright -->
+        <div class="taskbar-center" id="footer-text">© 2026 Muhamed Jaber</div>
+
+        <!-- rechts: Uhr -->
+        <div class="taskbar-clock" id="taskbar-clock">00:00</div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
