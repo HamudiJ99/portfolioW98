@@ -1,3 +1,51 @@
+/* ===== Projekte Fenster Layout ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.project-card {
+  background: #f3f3f3;
+  border: 2px solid #bdbdbd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.08);
+  padding: 20px 16px 16px 16px;
+  text-align: center;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.project-card p {
+  font-size: 1em;
+  margin-bottom: 18px;
+}
+
+.project-btn {
+  display: inline-block;
+  background: #008080;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background 0.2s;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+.project-btn:hover {
+  background: #005f5f;
+}
 .start-menu-icon {
   width: 20px;
   height: 20px;
@@ -82,17 +130,18 @@ h1 {
   left: 0;
 }
 
+
 .icon {
-  width: 72px;
+  width: 90px; /* 72px * 1.25 = 90px */
   text-align: center;
   color: white;
-  font-size: 13px;
+  font-size: 16.25px; /* 13px * 1.25 = 16.25px */
   cursor: default;
 }
 
 .icon img {
-  width: 32px;
-  height: 32px;
+  width: 40px; /* 32px * 1.25 = 40px */
+  height: 40px; /* 32px * 1.25 = 40px */
   margin-bottom: 4px;
 }
 
