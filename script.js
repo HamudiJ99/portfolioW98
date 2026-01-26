@@ -1,4 +1,11 @@
 // Globaler Klick-Sound (Windows 95 Style)
+// Bild-Preview-Fenster für große Bilder
+function openImagePreview(src) {
+  const win = document.getElementById("image-preview-window");
+  const img = document.getElementById("image-preview-img");
+  img.src = src;
+  openWindow("image-preview-window");
+}
 const clickSound = new Audio("assets/sounds/click.wav");
 clickSound.volume = 0.4;
 
@@ -86,6 +93,17 @@ window.addEventListener("DOMContentLoaded", () => {
     mainContent.style.display = "block";
 
     startClock(); // ⬅️ HIER rein!
+    // Bilder in .detail-section klickbar machen (immer nach dem Laden)
+    document.querySelectorAll(".detail-section img").forEach(img => {
+      if (!img.classList.contains("preview-ready")) {
+        img.classList.add("preview-ready");
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", function(e) {
+          e.stopPropagation();
+          openImagePreview(this.src);
+        });
+      }
+    });
   }, 4000);
 });
 
@@ -104,4 +122,54 @@ function startClock() {
   setInterval(updateClock, 1000); // jede Sekunde (wie Windows)
 }
 
+
+/* ===== Project Data ===== */
+const projects = [
+  {
+    title: "6-Axis Robot Arm & Conveyor Technology",
+    subtitle: "Free rotation of heavy objects with a 6-axis robot arm",
+    text: "As part of a systems engineering project at the University of Bremen, an automated system for the free rotation of heavy packages up to 35 kg was developed. The goal was to detect packages on an intelligent conveyor system depending on their orientation and to align them correctly using a 6-axis robot arm. For this purpose, a Cellumation conveyor system, a collaborative UR5e robot, camera systems, and a pneumatically operated tilting mechanism were conceptually combined. Control and communication of the components are handled via ROS (Robot Operating System). Due to external constraints, the final system was designed entirely digitally, including 3D modeling, motion and collision simulation, process planning, and economic evaluation. The project demonstrates a practical, scalable solution for automated logistics and sorting processes.",
+  },
+  {
+    title: "Projekt 2",
+    subtitle: "Automatisierung & Simulation",
+    text: "Beschreibung Projekt 2.",
+  },
+  {
+    title: "Projekt 3",
+    subtitle: "Embedded Systems",
+    text: "Beschreibung Projekt 3.",
+  },
+  {
+    title: "Projekt 4",
+    subtitle: "Web & Cloud",
+    text: "Beschreibung Projekt 4.",
+  },
+];
+
+let currentProjectIndex = 0;
+
+function openProject(index) {
+  currentProjectIndex = index;
+  const p = projects[index];
+
+  document.getElementById("project-detail-title").textContent = p.title;
+  document.getElementById("detail-h1").textContent = p.title;
+  document.getElementById("detail-h2").textContent = p.subtitle;
+  document.getElementById("detail-text").textContent = p.text;
+
+  openWindow("project-detail-window");
+}
+
+function nextProject() {
+  currentProjectIndex =
+    (currentProjectIndex + 1) % projects.length;
+  openProject(currentProjectIndex);
+}
+
+function prevProject() {
+  currentProjectIndex =
+    (currentProjectIndex - 1 + projects.length) % projects.length;
+  openProject(currentProjectIndex);
+}
 

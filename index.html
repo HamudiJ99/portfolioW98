@@ -1,3 +1,15 @@
+      <!-- Fenster: Bild-Preview -->
+      <div class="window hidden" id="image-preview-window">
+        <div class="window-titlebar" onmousedown="dragStart(event, this.parentElement)">
+          <span>Image Preview</span>
+          <span class="window-controls">
+            <button onclick="closeWindow('image-preview-window')" class="win95-btn">X</button>
+          </span>
+        </div>
+        <div class="window-content image-preview-content">
+          <img id="image-preview-img" src="" alt="Preview" />
+        </div>
+      </div>
 <!doctype html>
 <html lang="de">
   <head>
@@ -96,7 +108,6 @@
           </p>
         </div>
       </div>
-
       <!-- Fenster: Projects -->
       <div class="window hidden" id="projects-window">
         <div
@@ -110,27 +121,138 @@
             </button>
           </span>
         </div>
+
         <div class="window-content">
           <div class="projects-grid">
             <div class="project-card">
-              <h3>Projekt 1 Titel</h3>
-              <p>Kurzbeschreibung zu Projekt 1.</p>
-              <a href="#" class="project-btn" target="_blank">Zum Projekt</a>
+              <h3>6-Axis Robot Arm & Conveyor Technology</h3>
+              <p>
+                Development of an automated system for the free rotation of
+                heavy packages.
+              </p>
+              <button class="project-btn" onclick="openProject(0)">
+                View Project
+              </button>
             </div>
+
             <div class="project-card">
               <h3>Projekt 2 Titel</h3>
               <p>Kurzbeschreibung zu Projekt 2.</p>
-              <a href="#" class="project-btn" target="_blank">Zum Projekt</a>
+              <button class="project-btn" onclick="openProject(1)">
+                Zum Projekt
+              </button>
             </div>
+
             <div class="project-card">
               <h3>Projekt 3 Titel</h3>
               <p>Kurzbeschreibung zu Projekt 3.</p>
-              <a href="#" class="project-btn" target="_blank">Zum Projekt</a>
+              <button class="project-btn" onclick="openProject(2)">
+                Zum Projekt
+              </button>
             </div>
+
             <div class="project-card">
               <h3>Projekt 4 Titel</h3>
               <p>Kurzbeschreibung zu Projekt 4.</p>
-              <a href="#" class="project-btn" target="_blank">Zum Projekt</a>
+              <button class="project-btn" onclick="openProject(3)">
+                Zum Projekt
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fenster: Projects -->
+
+      <div class="window hidden" id="project-detail-window">
+        <div
+          class="window-titlebar"
+          onmousedown="dragStart(event, this.parentElement)"
+        >
+          <span id="project-detail-title">Project</span>
+          <span class="window-controls">
+            <button
+              onclick="closeWindow('project-detail-window')"
+              class="win95-btn"
+            >
+              X
+            </button>
+          </span>
+        </div>
+
+        <div class="window-content project-detail-content">
+          <!-- Navigation -->
+          <div class="project-nav">
+            <button class="project-nav-btn" onclick="prevProject()">
+              ◀ Previous
+            </button>
+            <button class="project-nav-btn" onclick="nextProject()">
+              Next ▶
+            </button>
+          </div>
+
+          <!-- Inhalt -->
+          <h1 id="detail-h1">Project Title</h1>
+          <h2 id="detail-h2">Subtitle / Context</h2>
+
+          <p id="detail-text">
+            Placeholder text for project description. You can describe the goal,
+            context, and technical background here.
+          </p>
+
+          <!-- Abschnitt: Bild + Text -->
+          <div class="detail-section">
+            <img src="assets/project1/project101.png" alt="Project Image" />
+            <div>
+              <h3>Concept</h3>
+              <p>
+                The final concept combines an intelligently controlled conveyor
+                system with a movable, pneumatically driven ramp and a 6-axis
+                robot arm. Packages are first analyzed for their orientation
+                using a camera and QR code recognition. An adjustable ramp tilts
+                the package in a controlled manner so that the center of gravity
+                is optimally positioned. The robot then takes over the actual
+                rotation movement with a special tool, distributing the load
+                evenly across the axes. The entire system is centrally
+                controlled via ROS and enables the safe rotation of heavy
+                packages regardless of size, weight, or initial position.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <img src="assets/project1/project102.png" alt="Project Image" />
+            <div>
+              <h3>Object Detection</h3>
+              <p>
+                For package detection, we chose the program "TensorFlow." It can
+                be easily installed on the Raspberry Pi and recognizes objects
+                and their contours. It is based on Python and can most likely be
+                integrated into ROS. TensorFlow can detect objects and determine
+                with a percentage probability what kind of object it is.
+              </p>
+            </div>
+          </div>
+          <div class="detail-section">
+            <img src="assets/project1/project103.png" alt="Project Image" />
+            <div>
+              <p>
+                For scanning the QR codes, we use "zbar." In this program,
+                scanning the QR codes is already fully implemented, and you only
+                need to pass the read data to ROS.
+              </p>
+            </div>
+          </div>
+          <div class="detail-section">
+            <img src="assets/project1/project104.png" alt="Project Image" />
+            <div>
+              <h3>Cost-effectiveness</h3>
+              <p>
+                The project is highly cost-effective: With a one-time investment
+                (excluding cameras, conveyor, and robot), the system can run
+                24/7 and replace up to three workers. Maintenance is simple, and
+                defective cells can be quickly replaced or updated via software
+                without stopping the system.
+              </p>
             </div>
           </div>
         </div>
