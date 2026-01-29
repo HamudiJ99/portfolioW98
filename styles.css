@@ -1,4 +1,3 @@
-
 /* Sound Button in Taskbar */
 .sound-btn {
   background: none;
@@ -308,6 +307,7 @@ h1 {
   width: 720px;
   top: 80px;
   left: 200px;
+
 }
 
 
@@ -323,6 +323,7 @@ h1 {
   border-bottom: 2px solid #fff;
   cursor: move;
   user-select: none;
+
 }
 
 .window-controls {
@@ -355,6 +356,12 @@ h1 {
   border-top: 2px solid #fff;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+
+#projects-window .window-content {
+  height: 600px;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 /* ===== Form Elements ===== */

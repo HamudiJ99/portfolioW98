@@ -1,3 +1,24 @@
+// Dynamische Projektausgabe in der Übersicht
+function renderProjectOverview() {
+  const grid = document.getElementById("projects-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  projects.forEach((p, i) => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p>${p.text.length > 120 ? p.text.slice(0, 117) + "..." : p.text}</p>
+      <button class="project-btn" onclick="openProject(${i})">View Project</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  renderProjectOverview();
+  // ...existing code...
+});
 // === Background Sound ===
 let backgroundSound = null;
 let soundOn = true;
@@ -7,20 +28,20 @@ function toggleBackgroundSound() {
   soundOn = !soundOn;
   if (soundOn) {
     backgroundSound.play();
-    document.getElementById('sound-icon').src = 'assets/icons/sound-on.png';
-    document.getElementById('sound-icon').alt = 'Sound On';
+    document.getElementById("sound-icon").src = "assets/icons/sound-on.png";
+    document.getElementById("sound-icon").alt = "Sound On";
   } else {
     backgroundSound.pause();
-    document.getElementById('sound-icon').src = 'assets/icons/sound-off.png';
-    document.getElementById('sound-icon').alt = 'Sound Off';
+    document.getElementById("sound-icon").src = "assets/icons/sound-off.png";
+    document.getElementById("sound-icon").alt = "Sound Off";
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   // ...existing code...
 
   // Hintergrundsound vorbereiten (Datei muss bereitgestellt werden)
-  backgroundSound = new Audio('assets/sounds/background.mp3'); // <--- Datei bereitstellen!
+  backgroundSound = new Audio("assets/sounds/background.mp3"); // <--- Datei bereitstellen!
   backgroundSound.loop = true;
   backgroundSound.volume = 0.5;
   if (soundOn) {
@@ -209,7 +230,7 @@ const projects = [
   {
     title: "Cataloging System",
     subtitle:
-      "Development of a System for Cataloging Variant-Rich Products in Expert Systems.",
+      "A System for Cataloging Variant-Rich Products in Expert Systems",
     text: "The cataloging system supports the structured management, creation, and validation of attributes and schemas for various object types. Users can define attributes including type, unit, synonyms, descriptions, and examples, organize them into classes, and combine them into reusable schemas with defined value ranges. An integrated schema editor and template system enable efficient schema creation and reuse. Additionally, a JSON-LD generator allows structured data to be generated, previewed, and exported. A built-in validator checks JSON-LD code or URLs against selected schemas to detect errors and inconsistencies early. All changes are stored locally in the browser, ensuring persistence and efficient iterative modeling.",
     detailSections: [
       {
@@ -232,7 +253,7 @@ const projects = [
   {
     title: "Interface for Automated Storage of Measurement Data",
     subtitle:
-      "Development of an interface for the automated storage of measurement data in an electronic laboratory notebook.",
+      "Development of an interface for the automated storage of measurement data in an electronic laboratory notebook",
     text: "The project focuses on the development of an interface for the partially automated transfer of measurement data into an electronic laboratory notebook. The objective is to capture, process, and archive research and measurement data from scientific experiments in a structured, efficient, and reliable manner. With the increasing digitalization of scientific workflows, the solution aims to reduce manual data entry and minimize documentation effort. The developed system supports the entire research data management process from data acquisition and processing to long term storage, thereby improving traceability, reusability, and the publication of scientific results.",
     detailSections: [
       {
@@ -253,25 +274,26 @@ const projects = [
     ],
   },
   {
-    title: "Interface for Automated Storage of Measurement Data",
-    subtitle:
-      "Development of an interface for the automated storage of measurement data in an electronic laboratory notebook.",
-    text: "The project focuses on the development of an interface for the partially automated transfer of measurement data into an electronic laboratory notebook. The objective is to capture, process, and archive research and measurement data from scientific experiments in a structured, efficient, and reliable manner. With the increasing digitalization of scientific workflows, the solution aims to reduce manual data entry and minimize documentation effort. The developed system supports the entire research data management process from data acquisition and processing to long term storage, thereby improving traceability, reusability, and the publication of scientific results.",
+    title: "Webdesign made simple",
+    subtitle: "Simple static website just with html and css",
+    text: "This website is a simple static demo page for a fictional web design service called “Webdesign Made Simple”. It presents a basic layout with navigation, service sections, placeholder text, a newsletter signup, and a footer. The page can be viewed as a template or student project intended to demonstrate fundamental web design and GitHub Pages usage rather than a finished commercial website.",
     detailSections: [
       {
-        img: "assets/project4/project401.png",
-        title: "Metadata Extraction",
-        text: "As part of the project, automated extraction of metadata from measurement and manufacturing files was implemented to enable structured and consistent documentation in the electronic laboratory notebook. Metadata such as measurement parameters, device information, and timestamps are extracted directly from file formats like TDMS and Surface files and processed further without manual input. This reduces documentation effort, minimizes sources of error, and improves the traceability and reusability of research data. Automated metadata extraction is a key component for efficient research data management and compliance with the FAIR principles.",
+        img: "assets/project5/project501.png",
+        title: "WEBDESIGN made simple",
+        text: "Access the full application here: <a href='https://jhamudi-uni.github.io/WMS.github.io/' target='_blank' rel='noopener noreferrer'>https://jhamudi-uni.github.io/WMS.github.io/</a>. No installation is required—simply visit the link to get started",
       },
+    ],
+  },
+  {
+    title: "ContentLab",
+    subtitle: "Online platform for creating, managing, and publishing courses.",
+    text: "ContentLab is a modern and user-friendly platform for creating and managing online courses. It is designed for educators, companies, and educational institutions that want to professionally prepare and deliver digital learning content. At its core is an intuitive dashboard that allows users to record high-quality videos directly in the browser. The integrated editor enables the creation of interactive (rich) content to enhance the learning experience. The platform also offers progress tracking, making it easy to monitor participants' learning status. Team management allows members and their permissions to be centrally organized. With its clear structure and ease of use, ContentLab provides a comprehensive solution for the digitalization of learning processes.",
+    detailSections: [
       {
-        img: "assets/project4/project402.png",
-        title: "Graphical User Interface",
-        text: "A graphical user interface (GUI) was developed in the project to enable intuitive and efficient interaction with the electronic laboratory notebook. The GUI supports users in the structured acquisition, display, and management of measurement data and automatically extracted metadata. By providing a clear presentation of relevant information as well as guided input and selection processes, documentation effort is reduced and usability is improved. The user interface serves as the central link between user, measurement data, and backend system, making a significant contribution to consistent and error-free research data management.",
-      },
-      {
-        img: "assets/project4/project403.png",
-        title: "Structuring of Metadata",
-        text: "The image shows the structured presentation of extracted metadata from various measurement files within an electronic laboratory notebook. The displayed information includes, among others, title, creator, publisher, publication date, resource type, description of measurement parameters, and geographic information. The metadata is automatically extracted from different file formats such as SUR and TDMS files and organized hierarchically. This structured preparation enables consistent documentation, facilitates traceability of measurement data, and supports their further use in research data management.",
+        img: "assets/project6/project601.png",
+        title: "ContentLab",
+        text: "Access the full application here: <a href='https://contentlab-6d713.web.app/home' target='_blank' rel='noopener noreferrer'>https://contentlab-6d713.web.app/home</a>. No installation is required—simply visit the link to get started",
       },
     ],
   },
